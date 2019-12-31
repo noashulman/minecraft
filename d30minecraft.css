@@ -93,3 +93,8 @@ div.ground{
     background-image:url(./images/ground.png);
     background-size:cover;
 }
+
+div.grass{
+    background-image:url(./images/grass.jpg);
+    background-size:cover;
+}
