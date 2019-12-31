@@ -98,3 +98,10 @@ div.grass{
     background-image:url(./images/grass.jpg);
     background-size:cover;
 }
+
+
+
+div.rock{
+    background-image:url(./images/rock.png);
+    background-size:cover;  
+}
