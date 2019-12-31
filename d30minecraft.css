@@ -62,17 +62,17 @@ padding:0;
 } 
 
 .axe{
-    background-image: ;
+    background-image:url(./images/axe.png) ;
     background-size: cover;
 }
 
 .pickaxe{
-    background-image:;
+    background-image:url(./images/pickaxe.png);
     background-size:cover;
 }
 
 .shovel{
-    background-image:;
+    background-image:url(./images/shovel.png);
     background-size:cover;
 }
 
@@ -90,6 +90,6 @@ padding:0;
 }
 
 div.ground{
-    background-image:;
+    background-image:url(./images/ground.png);
     background-size:cover;
 }
