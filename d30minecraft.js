@@ -16,10 +16,8 @@ for (let i=0; i<20; i++){
 }   
 
 for (let i=15; i<20; i++){
-    
     for (let j=0;j<20; j++){
         canvasCubes[i][j].classList.add("ground");
-
     }
 }
 
