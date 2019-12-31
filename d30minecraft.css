@@ -98,3 +98,14 @@ div.grass{
     background-image:url(./images/grass.jpg);
     background-size:cover;
 }
+
+div.wood{
+    background-image: url(./images/Wood.png);
+    background-size:cover;
+}
+
+div.tree{
+    background-image: url(./images/tree.png);
+    background-size:cover;
+}
+}

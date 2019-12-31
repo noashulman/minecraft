@@ -23,16 +23,29 @@ for (let i=15; i<20; i++){
     }
 }
 
-for (let i=15; i<20; i++){
-    
-    for (let j=0;j<20; j++){
-        canvasCubes[i][j].classList.add("ground");
-
-    }
-}
-
 for (let i=14;i<15;i++){
     for (let j=0;j<20; j++){
         canvasCubes[i][j].classList.add("grass");
     }
+}
+
+for (let i=11;i<14;i++){
+    for (let j=16; j<17; j++){
+        canvasCubes[i][j].classList.add("wood");
+    }
+
+}
+
+for (let i=8;i<11;i++){
+    for (let j=15; j<18; j++){
+        canvasCubes[i][j].classList.add("tree");
+    }
+
+}
+
+for (let i=9;i<10;i++){
+    for (let j=14; j<19; j++){
+        canvasCubes[i][j].classList.add("tree");
+    }
+
 }
