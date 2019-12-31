@@ -99,9 +99,22 @@ div.grass{
     background-size:cover;
 }
 
+<<<<<<< HEAD
 
 
 div.rock{
     background-image:url(./images/rock.png);
     background-size:cover;  
 }
+=======
+div.wood{
+    background-image: url(./images/Wood.png);
+    background-size:cover;
+}
+
+div.tree{
+    background-image: url(./images/tree.png);
+    background-size:cover;
+}
+}
+>>>>>>> 96b6960cb2a2f155561792915e7a2f3924cc653d
