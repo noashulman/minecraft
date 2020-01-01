@@ -30,6 +30,33 @@ body {
     border: 1px solid red
 }
 
+body {
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+.game,
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    width: 50%;
+    height: 100vh;
+    border: 1px solid black;
+}
+
+.board {
+    height: 100%;
+    width: 80%;
+    border: 1px solid red
+}
+
 .canvas {
     width: 98%;
     height: 98%;
@@ -75,6 +102,52 @@ body {
     background-size: cover;
 }
 
+.buttons {
+    height: 100%;
+    width: 20%;
+    border: 1px solid rgb(0, 102, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* .last-one{
+height:50%;
+width:100%;
+display:flex;
+    } */
+
+.tools,
+.last-one {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.axe,
+.pickaxe,
+.shovel,
+.inventory {
+    width: 4em;
+    height: 4em;
+    background-size: cover;
+}
+
+.axe {
+    background-image: url(./images/axe.png);
+}
+
+.pickaxe {
+    background-image: url(./images/pickaxe.png);
+}
+
+.shovel {
+    background-image: url(./images/shovel.png);
+}
+
 .row {
     height: 5%;
     width: 100%;
@@ -85,20 +158,42 @@ body {
     height: 100%;
     width: 5%;
     background-color: #8DBFFF;
+}
+
+.cube {
+    height: 100%;
+    width: 5%;
+    background-color: rgb(43, 177, 255);
     /* border:0.1px solid blue */
+}
+
+.cube:hover {
+    border: 1px solid rgba(253, 253, 253, 0.37);
+}
+
+div.ground,
+div.grass,
+div.rock,
+div.tree {
+    background-size: cover;
 }
 
 div.ground {
     background-image: url(./images/ground.png);
-    background-size: cover;
 }
 
 div.grass {
     background-image: url(./images/grass.jpg);
-    background-size: cover;
 }
 
 div.rock {
     background-image: url(./images/rock.png);
-    background-size: cover;
+}
+
+div.wood {
+    background-image: url(./images/Wood.png);
+}
+
+div.tree {
+    background-image: url(./images/tree.png);
 }
