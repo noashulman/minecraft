@@ -4,31 +4,26 @@
 }
 
 body{
-display:flex;
 flex-direction:column;
-justify-content:center;
-align-items:center;
 height:100vh;
 margin:0;
 padding:0;
 
 }
-
-.game{
-    width:50%;
-    height:100vh;
+body, .game, .board{
     display:flex;
     justify-content:center;
     align-items:center;
+}
+.game{
+    width:50%;
+    height:100vh;
     border:1px solid black;
 }
 
 .board{
     height:100%;
     width:80%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     border:1px solid red
 }
 
@@ -42,7 +37,7 @@ padding:0;
 .buttons{
     height:100%;
     width:20%;
-    border:1px solid blue;
+    border:1px solid rgb(0, 102, 255);
     display:flex;
     flex-direction:column;
 }
@@ -59,21 +54,20 @@ padding:0;
 .axe,.pickaxe,.shovel{
     width:4em;
     height:4em;
+    background-size: cover;
 } 
 
 .axe{
     background-image:url(./images/axe.png) ;
-    background-size: cover;
+
 }
 
 .pickaxe{
     background-image:url(./images/pickaxe.png);
-    background-size:cover;
 }
 
 .shovel{
     background-image:url(./images/shovel.png);
-    background-size:cover;
 }
 
 .row{
@@ -85,36 +79,32 @@ padding:0;
 .cube{
     height:100%;
     width:5%;
-    background-color:#8DBFFF;
+    background-color:rgb(43, 177, 255);
     /* border:0.1px solid blue */
 }
+.cube:hover{
+    border: 1px solid rgba(253, 253, 253, 0.37);
+}
+div.ground, div.grass, div.rock, div.tree{
+    background-size:cover;
 
+}
 div.ground{
     background-image:url(./images/ground.png);
-    background-size:cover;
 }
 
 div.grass{
     background-image:url(./images/grass.jpg);
-    background-size:cover;
 }
-
-<<<<<<< HEAD
-
 
 div.rock{
     background-image:url(./images/rock.png);
-    background-size:cover;  
 }
-=======
 div.wood{
     background-image: url(./images/Wood.png);
-    background-size:cover;
 }
 
 div.tree{
     background-image: url(./images/tree.png);
-    background-size:cover;
 }
-}
->>>>>>> 96b6960cb2a2f155561792915e7a2f3924cc653d
+
