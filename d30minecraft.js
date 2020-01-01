@@ -1,4 +1,16 @@
 {
+    class Game {
+        constructor() {
+            this.world = new World();
+        }
+
+        someFunc(someParam) {
+
+        }
+
+    }
+
+
     class World {
         constructor() {
             this.canvas = document.querySelector(".canvas");
@@ -71,5 +83,5 @@
         }
 
     }
-    new World();
+    new Game();
 }
