@@ -1,3 +1,20 @@
+{
+    class Game {
+        constructor() {
+            this.world = new World();
+        }
+
+        someFunc(someParam) {
+
+        }
+
+    }
+
+
+    class World {
+        constructor() {
+            this.canvas = document.querySelector(".canvas");
+            this.canvasCubes = [];
 
 const canvas = document.querySelector(".canvas");
 const canvasCubes = [];
@@ -59,3 +76,14 @@ for (let i=12;i<13;i++){
     }
 }
      
+    new Game();
+}
+    }}
+const canvas =document.querySelector(".canvas")
+const tools = document.querySelectorAll("button");
+console.log(tools)
+for (i = 0; i < tools; i++){
+    tools[i].addEventListener("mousedown", function(){
+        canvas.classList.add("axes")
+    })
+}

@@ -80,26 +80,26 @@ body,
     align-items: center;
 }
 
-.axe,
-.pickaxe,
-.shovel {
+.toolbox {
     width: 4em;
     height: 4em;
+    background-size: cover;
 }
 
 .axe {
     background-image: url(./images/axe.png);
-    background-size: cover;
+    
+}
+.axes{
+    cursor: url(./images/axe.png);
 }
 
 .pickaxe {
     background-image: url(./images/pickaxe.png);
-    background-size: cover;
 }
 
 .shovel {
     background-image: url(./images/shovel.png);
-    background-size: cover;
 }
 
 .buttons {
