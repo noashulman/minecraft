@@ -91,7 +91,7 @@ body, .game, .board{
 .cube:hover{
     border: 1px solid rgba(253, 253, 253, 0.37);
 }
-div.ground, div.grass, div.rock, div.tree{
+div.ground, div.grass, div.rock, div.tree, div.wood{
     background-size:cover;
 
 }
