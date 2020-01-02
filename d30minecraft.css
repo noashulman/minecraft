@@ -2,51 +2,20 @@
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body, .game, .board {
     margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: black; */
+    background-image: url(./images/Desktop/243341.png);
+}
 .game {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-}
-
-.board {
-    height: 100%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red
-}
-
-body {
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-body,
-.game,
-.board {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.game {
-    width: 50%;
+    width: 60%;
     height: 100vh;
     border: 1px solid black;
 }
@@ -61,79 +30,37 @@ body,
     width: 98%;
     height: 98%;
     border: 1px solid black;
-}
+    background-color: rgb(46, 176, 252);
 
-.buttons {
-    height: 100%;
-    width: 20%;
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: column;
-}
-
-.tools {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.toolbox {
-    width: 4em;
-    height: 4em;
-    background-size: cover;
-}
-
-.axe {
-    background-image: url(./images/axe.png);
-    
-}
-.axes{
-    cursor: url(./images/axe.png);
-}
-
-.pickaxe {
-    background-image: url(./images/pickaxe.png);
-}
-
-.shovel {
-    background-image: url(./images/shovel.png);
 }
 
 .buttons {
     height: 100%;
     width: 20%;
     border: 1px solid rgb(0, 102, 255);
-    display: flex;
-    flex-direction: column;
 }
-
-
-/* .last-one{
-height:50%;
-width:100%;
-display:flex;
-    } */
 
 .tools,
 .last-one {
     height: 50%;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.63);
 }
 
 .axe,
 .pickaxe,
 .shovel,
 .inventory {
-    width: 4em;
-    height: 4em;
-    background-size: cover;
+    width: 7em;
+    height: 7em;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: transparent;
 }
 
 .axe {
@@ -155,15 +82,8 @@ display:flex;
 }
 
 .cube {
-    height: 100%;
+    /* height: 100%; */
     width: 5%;
-    background-color: #8DBFFF;
-}
-
-.cube {
-    height: 100%;
-    width: 5%;
-    background-color: rgb(43, 177, 255);
     /* border:0.1px solid blue */
 }
 
@@ -193,4 +113,21 @@ div.wood {
 
 div.tree {
     background-image: url(./images/tree.png);
+}
+.axes{
+    cursor: url(./images/Desktop/axe.png)10 20, auto; 
+
+}
+.pickaxes{
+    cursor: url(./images/Desktop/pickaxe.png)10 10, auto; 
+
+}
+.shovels{
+    cursor: url(./images/Desktop/shovel.png)0 59 , auto; 
+
+}
+button:focus {outline:0;}
+button:hover{
+    box-shadow: 2px 2px 0 0 grey;
+    background-color: rgba(255, 255, 255, 0.233);
 }

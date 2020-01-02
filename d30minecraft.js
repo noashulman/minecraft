@@ -1,4 +1,4 @@
-{
+
     class Game {
         constructor() {
             this.world = new World();
@@ -75,15 +75,21 @@ for (let i=12;i<13;i++){
         canvasCubes[i][j].classList.add("rock");
     }
 }
-     
+}}
+
     new Game();
-}
-    }}
-const canvas =document.querySelector(".canvas")
-const tools = document.querySelectorAll("button");
-console.log(tools)
-for (i = 0; i < tools; i++){
-    tools[i].addEventListener("mousedown", function(){
-        canvas.classList.add("axes")
+
+const game = document.querySelector(".board");
+const tools = document.querySelectorAll(".toolbox");
+const arr = [...tools];
+arr.map(elem =>{
+    elem.addEventListener("mousedown", function(e){
+        let classesOfGame = game.className.split(" ");
+        if (classesOfGame.length > 1){
+            game.classList.remove(classesOfGame.pop())
+        }
+        let classesOfClickedTool = e.target.className.split(" ").pop();
+        game.classList.add(classesOfClickedTool+"s");
     })
-}
+})
+
