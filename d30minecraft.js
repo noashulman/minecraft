@@ -2,10 +2,19 @@
     class Game {
         constructor() {
             this.world = new World();
+
+            this.toolAxe = document.querySelector(".axe");
+            this.toolPickaxe = document.querySelector(".pickaxe");
+            this.toolShovel = document.querySelector(".shovel");
         }
 
-        someFunc(someParam) {
+        mineResource(event) {
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
 
+                }
+
+            }
         }
 
     }
