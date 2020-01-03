@@ -4,14 +4,14 @@
     // new Game();{
     // }
 
-const startGame = document.getElementById('main-start');
-const introDiv = document.querySelector('.intro-page');
-const gameDiv = document.querySelector('.game');
-startGame.addEventListener('click', () => {
-    introDiv.classList.add('hide');
-    gameDiv.classList.remove('hide');
-    // new Game();
-})
+// const startGame = document.getElementById('main-start');
+// const introDiv = document.querySelector('.intro-page');
+// const gameDiv = document.querySelector('.game');
+// startGame.addEventListener('click', () => {
+//     introDiv.classList.add('hide');
+//     gameDiv.classList.remove('hide');
+//     // new Game();
+// })
 
 
     const canvas = document.querySelector(".canvas");
@@ -180,7 +180,6 @@ startGame.addEventListener('click', () => {
 
 
     function takeFromInventory (event) {
-        const inInventory = event.target.classList.value.split(" ")[1];
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
                 canvasCubes[i][j].addEventListener("click", build);
@@ -188,9 +187,24 @@ startGame.addEventListener('click', () => {
 
             }
         }
-
+        
 
     }
+    
+    function build (event){
+        for (let i=0; i<1; i++){
+        event.target.classList.add (`${inventory.classList.value.split(" ")[1]}`);
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                canvasCubes[i][j].removeEventListener("click", build);
+
+
+            }
+        }
+        }
+    }
+
+
     mine();
 }
 

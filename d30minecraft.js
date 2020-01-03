@@ -12,7 +12,7 @@ document.getElementById("btn").addEventListener("click",myAction);
 function myAction(){
     document.getElementById("stsrtSow").innerHTML="ENJOY THE GAME"
     document.getElementById("img-div").style.visibility= "visible";
-
+    
 }
 
 
