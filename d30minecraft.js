@@ -1,4 +1,20 @@
+////////////////////////////////////////////////////////////////
+ window.setInterval(() => {
+    var x = new Date();
+    var hour = x.getHours();
+    var minute = x.getMinutes();
+    var second = x.getSeconds();
+    console.log(hour);
 
+    document.getElementById('clock').innerHTML = `${hour}:${minute}:${second}`;
+}, 1000);
+ var  message = document.getElementById("btn");
+ message.addEventListener("click",myMassage)
+ function myMassage(){
+     document.getElementById("stsrtSow").innerHTML="ENJOY THE GAME";
+     document.getElementById("img-div").style.visibility= "visible";
+ }
+  //////////////////////////////////////////////////////////////
     class Game {
         constructor() {
             this.world = new World();
