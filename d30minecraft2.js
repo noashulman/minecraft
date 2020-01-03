@@ -57,14 +57,71 @@
         }
     }
 
+    for (let i = 13; i < 14; i++) {
+        for (let j = 0; j < 5; j++) {
+            canvasCubes[i][j].classList.add("rock");
+        }
+    }
 
-    function minewood() {
+    for (let i = 12; i < 13; i++) {
+        for (let j = 0; j < 3; j++) {
+            canvasCubes[i][j].classList.add("rock");
+        }
+    }
+
+
+    let axeboolean = false
+    let pickaxeboolean = false
+    let shovelboolean = false
+    
+    const inventory = document.querySelector(".inventory");
+    inventory.addEventListener("click", build)
+    
+    function mine() {
         const axe = document.querySelector(".axe");
-        axe.addEventListener("click", minewood2);
+        axe.addEventListener("click", minewood);
+
+        const pickaxe = document.querySelector(".pickaxe");
+        pickaxe.addEventListener("click", minerock);
+
+        const shovel = document.querySelector(".shovel");
+        shovel.addEventListener("click", mineground);
+
+        
 
     }
-    function minewood2() {
-        console.log("hello");
+    function minewood() {
+        axeboolean = true;
+        pickaxeboolean = false;
+        shovelboolean = false;
+
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                canvasCubes[i][j].addEventListener("click", changeClass);
+
+
+            }
+        }
+    }
+
+    function minerock() {
+        axeboolean = false;
+        pickaxeboolean = true;
+        shovelboolean = false;
+
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                canvasCubes[i][j].addEventListener("click", changeClass);
+
+
+            }
+        }
+    }
+
+    function mineground() {
+        axeboolean = false;
+        pickaxeboolean = false;
+        shovelboolean = true;
 
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
@@ -76,16 +133,43 @@
     }
 
     function changeClass(event) {
-            console.log(event.target.class);
-        if (event.target.class ==="wood" || event.target.class==="tree"){
-            
-            
-            event.target.classList.remove("wood")
-            event.target.classList.remove("tree")
+
+        if (axeboolean === true) {
+                event.target.classList.remove("wood");
+                event.target.classList.remove("tree");
+                for (i=1; i<inventory.classList.length;i++){
+                    inventory.classList.remove ("rock")
+                    inventory.classList.remove ("ground")
+                }
+                inventory.classList.add ("tree")
+        }
+
+        else if (pickaxeboolean === true) {
+                event.target.classList.remove("rock");
+                for (i=1; i<inventory.classList.length;i++){
+                    inventory.classList.remove ("tree")
+                    inventory.classList.remove ("ground")
+                }
+
+                inventory.classList.add ("rock")
+        }
+        else if (shovelboolean === true) {
+                event.target.classList.remove("ground");
+                event.target.classList.remove("grass");
+                for (i=1; i<inventory.classList.length;i++){
+                    inventory.classList.remove ("tree")
+                    inventory.classList.remove ("rock")
+                }
+                inventory.classList.add ("ground")
         }
     }
 
-    minewood();
+
+    function build (event) {
+        console.log(event.target.classList.value.split(" ")[1]);
+        
+    }
+    mine();
 }
 
 
