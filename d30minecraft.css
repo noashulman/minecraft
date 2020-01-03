@@ -2,25 +2,46 @@
     box-sizing: border-box;
 }
 
-body, .game, .board {
+.game.hide,
+.intro-page.hide {
+    display: none;
+}
+
+body,
+.game,
+.board,
+.intro-page {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-body{
+
+body {
     background-size: cover;
     background-repeat: no-repeat;
     /* background-color: black; */
     background-image: url(./images/Desktop/243341.png);
+    padding: 0;
 }
 
-#clock{
+.intro-page {
+    /* width: 80vw; */
+    /* height: 98vh; */
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+.intro-page img {
+    height: 60%;
+    width: 60%;
+}
+
+#clock {
     width: 100px;
     height: 50px;
     margin: 20px;
     padding: 11px;
-
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -29,8 +50,8 @@ body{
     border-radius: 5px;
     background-color: lemonchiffon;
 }
-#btn{
-   
+
+#btn {
     width: 100px;
     height: 50px;
     margin: 18px;
@@ -39,23 +60,25 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-color: transparent;
-
 }
-#btn:hover{
+
+#btn:hover {
     background-color: yellowgreen;
-
 }
-#stsrtSow{
+
+#stsrtSow {
     font-size: 18px;
-    color:#ff1100;
+    color: #ff1100;
     margin-top: 50px;
 }
-#img-div{
+
+#img-div {
     width: 150px;
     height: 300px;
     visibility: hidden;
 }
-img{
+
+img {
     width: 100%;
     height: 100%;
 }
@@ -65,7 +88,8 @@ img{
     height: 100vh;
     border: 1px solid black;
 }
-.menu{
+
+.menu {
     width: 20%;
     height: 100vh;
     border: 1px dashed green;
@@ -82,7 +106,6 @@ img{
     height: 98%;
     border: 1px solid black;
     background-color: rgb(46, 176, 252);
-
 }
 
 .buttons {
@@ -142,7 +165,11 @@ img{
     border: 1px solid rgba(253, 253, 253, 0.37);
 }
 
-div.ground, div.grass, div.rock, div.tree, div.wood {
+div.ground,
+div.grass,
+div.rock,
+div.tree,
+div.wood {
     background-size: cover;
 }
 
@@ -165,20 +192,24 @@ div.wood {
 div.tree {
     background-image: url(./images/tree.png);
 }
-.axes{
-    cursor: url(./images/Desktop/axe.png)10 20, auto; 
 
+.axes {
+    cursor: url(./images/Desktop/axe.png)10 20, auto;
 }
-.pickaxes{
-    cursor: url(./images/Desktop/pickaxe.png)10 10, auto; 
 
+.pickaxes {
+    cursor: url(./images/Desktop/pickaxe.png)10 10, auto;
 }
-.shovels{
-    cursor: url(./images/Desktop/shovel.png)0 59 , auto; 
 
+.shovels {
+    cursor: url(./images/Desktop/shovel.png)0 59, auto;
 }
-button:focus {outline:0;}
-button:hover{
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
     box-shadow: 2px 2px 0 0 grey;
     background-color: rgba(255, 255, 255, 0.233);
-}  
+}
