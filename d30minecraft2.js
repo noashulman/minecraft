@@ -1,5 +1,19 @@
 {
 
+
+    // new Game();{
+    // }
+
+const startGame = document.getElementById('main-start');
+const introDiv = document.querySelector('.intro-page');
+const gameDiv = document.querySelector('.game');
+startGame.addEventListener('click', () => {
+    introDiv.classList.add('hide');
+    gameDiv.classList.remove('hide');
+    // new Game();
+})
+
+
     const canvas = document.querySelector(".canvas");
     const canvasCubes = [];
     for (let i = 0; i < 20; i++) {
@@ -175,7 +189,7 @@
             }
         }
 
-        
+
     }
     mine();
 }
