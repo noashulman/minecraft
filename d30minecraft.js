@@ -1,15 +1,57 @@
 {
+    
+    
+        function minewood() {
+            const axe = document.querySelector(".axe");
+            axe.addEventListener("click", mine);
+            
+        }
+        function mine() {
+            console.log("hello");
+            
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
+                    World.this.canvasCubes[i][j].addEventListener("click", changeClass);
+                    this.changeClass();
+                    console.log ("hi")
+                }
+            }
+        }
+
+        function changeClass(){
+            
+
+        }
+          
+        minewood()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     class Game {
         constructor() {
             this.world = new World();
         }
+ 
+    }     
 
-        someFunc(someParam) {
-
-        }
-
-    }
-
+               
 
     class World {
         constructor() {
