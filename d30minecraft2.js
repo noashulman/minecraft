@@ -75,7 +75,7 @@
     let shovelboolean = false
     
     const inventory = document.querySelector(".inventory");
-    inventory.addEventListener("click", build)
+    inventory.addEventListener("click", takeFromInventory)
     
     function mine() {
         const axe = document.querySelector(".axe");
@@ -165,8 +165,16 @@
     }
 
 
-    function build (event) {
-        console.log(event.target.classList.value.split(" ")[1]);
+    function takeFromInventory (event) {
+        const inInventory = event.target.classList.value.split(" ")[1];
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                canvasCubes[i][j].addEventListener("click", build);
+
+
+            }
+        }
+
         
     }
     mine();

@@ -1,13 +1,37 @@
-class Game {
+{
+    class Game {
     constructor() {
         this.world = new World();
+
+        // this.toolAxe = document.querySelector(".axe");
+        // this.toolPickaxe = document.querySelector(".pickaxe");
+        // this.toolShovel = document.querySelector(".shovel");
+    }
+
+    mineResource(event) {
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
 
         this.toolAxe = document.querySelector(".axe");
         this.toolPickaxe = document.querySelector(".pickaxe");
         this.toolShovel = document.querySelector(".shovel");
+        const board = document.querySelector(".board");
+        this.tools = document.querySelectorAll(".toolbox");
+        this.arrOfTools = [...this.tools];
+        this.arrOfTools.map(tool => {
+            tool.addEventListener("mousedown", function(e) {
+                let classesOfBoard = board.className.split(" ");
+                if (classesOfBoard.length > 1) {
+                    board.classList.remove(classesOfBoard.pop())
+                }
+                let classOfClickedTool = e.target.className.split(" ").pop();
+                board.classList.add(classOfClickedTool + "s");
+                let minableCubes = [];
+            });
+        });
     }
 
-    mineResource(event) {
+    mineResource(event) 
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
 
@@ -16,14 +40,41 @@ class Game {
         }
     }
 
-
-
-
-
 }
 
 
+// class World {
+//     constructor() {
+//         this.canvas = document.querySelector(".canvas");
+//         this.canvasCubes = [];
 
+//         const canvas = document.querySelector(".canvas");
+//         const canvasCubes = [];
+//         for (let i = 0; i < 20; i++) {
+//             canvasCubes.push([]);
+//             const row = document.createElement("div");
+//             row.classList.add("row")
+//             for (let j = 0; j < 20; j++) {
+//                 const cube = document.createElement("div");
+//                 cube.classList.add("cube");
+//                 cube.setAttribute("id", `${i}-${j}`);
+//                 row.appendChild(cube);
+//                 canvasCubes[i].push(cube);
+//             }
+
+//         }
+//     }
+
+//             canvas.appendChild(row);
+//         }
+
+
+
+
+// }
+
+
+    }
 
 class World {
     constructor() {
@@ -108,3 +159,5 @@ arr.map(elem => {
     })
 })
 
+new Game();
+    }
