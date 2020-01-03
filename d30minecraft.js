@@ -108,4 +108,4 @@ startGame.addEventListener('click', () => {
     introDiv.classList.add('hide');
     gameDiv.classList.remove('hide');
     new Game();
-})
+});
