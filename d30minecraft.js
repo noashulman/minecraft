@@ -124,12 +124,14 @@
 
 
         mineCube = (event) => {
-            this.inventory.setAttribute('class', 'inventory');
-            let classOfCube = [...event.target.classList].pop();
-            classOfCube === 'wood' ? classOfCube = 'tree' : classOfCube === 'grass' ? classOfCube = 'ground' : null;
-            this.invStore.push(classOfCube);
-            event.target.setAttribute('class', 'cube');
-            this.inventory.classList.add(classOfCube);
+            while ([...event.target.classList].length > 1) {
+                this.inventory.setAttribute('class', 'inventory');
+                let classOfCube = [...event.target.classList].pop();
+                classOfCube === 'wood' ? classOfCube = 'tree' : classOfCube === 'grass' ? classOfCube = 'ground' : null;
+                this.invStore.push(classOfCube);
+                event.target.setAttribute('class', 'cube');
+                this.inventory.classList.add(classOfCube);
+            }
         }
 
         mineWood() {
