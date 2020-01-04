@@ -205,20 +205,14 @@
             }
         }
 
-
         takeFromInventory(event) {
-                // const inInventory = event.target.classList.value.split(" ")[1];
-                // for (let i = 0; i < 20; i++) {
-                //     for (let j = 0; j < 20; j++) {
-                //         this.world.canvasCubes[i][j].addEventListener("click", build);
-
-
-                //     }
-                // }
-
-
-            }
-            // mine();
+            // const inInventory = event.target.classList.value.split(" ")[1];
+            // for (let i = 0; i < 20; i++) {
+            //     for (let j = 0; j < 20; j++) {
+            //         this.world.canvasCubes[i][j].addEventListener("click", build);
+            //     }
+            // }
+        }
     }
 
     const clock = document.querySelector('.clock');
