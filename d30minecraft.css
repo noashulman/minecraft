@@ -251,8 +251,9 @@ button:hover {
 .your{
     font-size: 2rem;
     font-family: fantasy;
-    color: rgb(151, 68, 21);
+    color: rgb(0, 0, 0);
     font-weight: 700;
+    text-shadow: 2px -2px 0px #7F7F7F;
 }
 
 .main-message{
@@ -260,4 +261,11 @@ button:hover {
     justify-content: end;
     align-items: center;
     flex-direction: column;
+}
+.writeNameMessage{
+    font-size: 3rem;
+    font-family: fantasy;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    text-shadow: 2px -2px 0px #7F7F7F;
 }
