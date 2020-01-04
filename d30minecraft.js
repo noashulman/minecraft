@@ -17,6 +17,7 @@
                 this.world = new World();
                 this.gameFunctionality = new GameFunctionality(this.world.canvasCubes);
                 this.gameFunctionality.inventory.setAttribute('class', 'inventory');
+                this.gameFunctionality.board.setAttribute('class', 'board');
             });
         }
     }
