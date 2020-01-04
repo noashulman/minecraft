@@ -63,8 +63,8 @@ body {
 }
 
 #btn:hover {
-    background-color: yellowgreen;
     cursor: pointer;
+    background-color: rgba(245, 240, 240, 0.11);
 }
 
 .start-show {

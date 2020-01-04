@@ -229,7 +229,7 @@
 
 
     function takeFromInventory(event) {
-        const inInventory = event.target.classList.value.split(" ")[1];
+        // const inInventory = event.target.classList.value.split(" ")[1];
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
                 canvasCubes[i][j].addEventListener("click", build);
@@ -237,7 +237,20 @@
 
             }
         }
+        
+
+    }
+    
+    function build (event){
+        for (let i=0; i<1; i++){
+        event.target.classList.add (`${inventory.classList.value.split(" ")[1]}`);
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                canvasCubes[i][j].removeEventListener("click", build);
 
 
+            }
+        }
+        }
     }
 }
