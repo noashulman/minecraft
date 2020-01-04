@@ -20,16 +20,12 @@ body,
 body {
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-color: black; */
     background-image: url(./images/Desktop/243341.png);
     padding: 0;
 }
 
 .intro-page {
-    /* width: 80vw; */
-    /* height: 98vh; */
     flex-direction: column;
-    /* justify-content: space-between; */
 }
 
 .intro-page img {
@@ -141,6 +137,7 @@ img {
     background-repeat: no-repeat;
     background-color: transparent;
     border: transparent;
+    cursor: pointer;
 }
 
 .axe {
@@ -162,9 +159,7 @@ img {
 }
 
 .cube {
-    /* height: 100%; */
     width: 5%;
-    /* border:0.1px solid blue */
 }
 
 .cube:hover {

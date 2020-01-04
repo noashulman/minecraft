@@ -15,6 +15,8 @@
                 }, 3000)
                 this.world.clearWorld();
                 this.world = new World();
+                this.gameFunctionality = new GameFunctionality(this.world.canvasCubes);
+                this.gameFunctionality.inventory.setAttribute('class', 'inventory');
             });
         }
     }
@@ -83,9 +85,6 @@
     class GameFunctionality {
         constructor(canvasCubes) {
             this.canvasCubes = canvasCubes;
-            // this.toolAxe = document.querySelector(".axe");
-            // this.toolPickaxe = document.querySelector(".pickaxe");
-            // this.toolShovel = document.querySelector(".shovel");
             this.inventory = document.querySelector(".inventory");
             this.board = document.querySelector(".board");
             this.tools = document.querySelectorAll(".toolbox");
@@ -109,109 +108,95 @@
                             this.mineground();
                             break;
                     }
-                    // this.mine(classOfClickedTool)
                 });
             }
-
-            this.axeboolean = false
-            this.pickaxeboolean = false
-            this.shovelboolean = false
-                // this.bindOptions();
-            this.inventory.addEventListener("click", this.takeFromInventory(event));
+            this.invStore = [];
         }
 
 
-        // mine() {
-
-        // const axe = document.querySelector(".axe");
-        // this.toolAxe.addEventListener("click", this.minewood());
-        // const pickaxe = document.querySelector(".pickaxe");
-        // this.toolPickaxe.addEventListener("click", this.minerock());
-        // const shovel = document.querySelector(".shovel");
-        // this.toolShovel.addEventListener("click", this.mineground());
-        // const inventory = document.querySelector(".inventory");
-        // }
-        // bindOptions() {}
+        mineCube = (event) => {
+            console.log(event.target);
+            console.log(this.inventory);
+            this.inventory.setAttribute('class', 'inventory');
+            let classOfCube = [...event.target.classList].pop();
+            classOfCube === 'wood' ? classOfCube = 'tree' : classOfCube === 'grass' ? classOfCube = 'ground' : null;
+            this.invStore.push(classOfCube);
+            console.log(this.invStore);
+            event.target.setAttribute('class', 'cube');
+            this.inventory.classList.add(classOfCube);
+        }
 
         minewood() {
-            this.axeboolean = true;
-            this.pickaxeboolean = false;
-            this.shovelboolean = false;
-            console.log(this.axeboolean);
-            console.log(this.canvasCubes);
-
-
-
+            let cubesNotWood = [];
+            let woodCubes = [];
             for (let i = 0; i < 20; i++) {
                 for (let j = 0; j < 20; j++) {
-                    this.canvasCubes[i][j].addEventListener("click", this.changeClass(event));
+                    const classesOfCube = [...this.canvasCubes[i][j].classList]
+                    if (classesOfCube.includes('wood') || classesOfCube.includes('tree')) {
+                        woodCubes.push(this.canvasCubes[i][j]);
+                    } else {
+                        cubesNotWood.push(this.canvasCubes[i][j]);
+                    }
                 }
             }
+
+            cubesNotWood.map(cube => {
+                cube.removeEventListener('mousedown', this.mineCube);
+            });
+
+            woodCubes.map(woodCube => {
+                woodCube.addEventListener('mousedown', this.mineCube);
+            });
         }
 
         minerock() {
-            this.axeboolean = false;
-            this.pickaxeboolean = true;
-            this.shovelboolean = false;
-
+            let cubesNotRock = [];
+            let rockCubes = [];
             for (let i = 0; i < 20; i++) {
                 for (let j = 0; j < 20; j++) {
-                    this.canvasCubes[i][j].addEventListener("click", this.changeClass(event));
+                    const classesOfCube = [...this.canvasCubes[i][j].classList]
+                    if (classesOfCube.includes('rock')) {
+                        rockCubes.push(this.canvasCubes[i][j]);
+                    } else {
+                        cubesNotRock.push(this.canvasCubes[i][j]);
+                    }
                 }
             }
+
+            cubesNotRock.map(cube => {
+                cube.removeEventListener('mousedown', this.mineCube);
+            });
+
+            rockCubes.map(rockCube => {
+                rockCube.addEventListener('mousedown', this.mineCube);
+            });
         }
 
         mineground() {
-            this.axeboolean = false;
-            this.pickaxeboolean = false;
-            this.shovelboolean = true;
-
+            let cubesNotGround = [];
+            let groundCubes = [];
             for (let i = 0; i < 20; i++) {
                 for (let j = 0; j < 20; j++) {
-                    this.canvasCubes[i][j].addEventListener("click", this.changeClass(event));
-
-
+                    const classesOfCube = [...this.canvasCubes[i][j].classList]
+                    if (classesOfCube.includes('ground') || classesOfCube.includes('grass')) {
+                        groundCubes.push(this.canvasCubes[i][j]);
+                    } else {
+                        cubesNotGround.push(this.canvasCubes[i][j]);
+                    }
                 }
             }
-        }
 
-        changeClass(event) {
+            cubesNotGround.map(cube => {
+                cube.removeEventListener('mousedown', this.mineCube);
+            });
 
-            this.inventory.setAttribute("class", "inventory");
-            if (this.axeboolean === true) {
-                event.target.classList.remove("wood");
-                event.target.classList.remove("tree");
-                // for (let i = 1; i < this.inventory.classList.length; i++) {
-                // this.inventory.classList.remove("rock");
-                // this.inventory.classList.remove("ground");
-                // this.inventory.classList.remove("grass");
-                // }
-                this.inventory.classList.add("tree");
-            } else if (this.pickaxeboolean === true) {
-                event.target.classList.remove("rock");
-                // for (let i = 1; i < this.inventory.classList.length; i++) {
-                //     this.inventory.classList.remove("tree")
-                //     this.inventory.classList.remove("ground")
-                // }
-                this.inventory.classList.add("rock")
-            } else if (this.shovelboolean === true) {
-                event.target.classList.remove("ground");
-                event.target.classList.remove("grass");
-                // for (let i = 1; i < this.inventory.classList.length; i++) {
-                //     this.inventory.classList.remove("tree")
-                //     this.inventory.classList.remove("rock")
-                // }
-                this.inventory.classList.add("ground")
-            }
+            groundCubes.map(groundCube => {
+                groundCube.addEventListener('mousedown', this.mineCube);
+            });
         }
 
         takeFromInventory(event) {
-            // const inInventory = event.target.classList.value.split(" ")[1];
-            // for (let i = 0; i < 20; i++) {
-            //     for (let j = 0; j < 20; j++) {
-            //         this.world.canvasCubes[i][j].addEventListener("click", build);
-            //     }
-            // }
+
         }
     }
 
