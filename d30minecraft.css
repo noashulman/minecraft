@@ -37,10 +37,10 @@ body {
     width: 60%;
 }
 
-#clock {
+.clock {
     width: 100px;
     height: 50px;
-    margin: 20px;
+    margin: 40px;
     padding: 11px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -54,7 +54,7 @@ body {
 #btn {
     width: 100px;
     height: 50px;
-    margin: 18px;
+    margin: 40px;
     font-size: 20px;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
@@ -64,17 +64,19 @@ body {
 
 #btn:hover {
     background-color: yellowgreen;
+    cursor: pointer;
 }
 
-#stsrtSow {
+.start-show {
     font-size: 18px;
     color: #ff1100;
     margin-top: 50px;
 }
 
-#img-div {
-    width: 150px;
-    height: 300px;
+.img-div {
+    width: 90%;
+    height: 20%;
+    /* margin: 30px; */
     visibility: hidden;
 }
 
@@ -84,7 +86,7 @@ img {
 }
 
 .game {
-    width: 60%;
+    width: 80%;
     height: 100vh;
     border: 1px solid black;
 }
@@ -115,7 +117,7 @@ img {
 }
 
 .tools,
-.last-one {
+.storeroom {
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -212,4 +214,25 @@ button:focus {
 button:hover {
     box-shadow: 2px 2px 0 0 grey;
     background-color: rgba(255, 255, 255, 0.233);
+}
+
+.storeroom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory.tree {
+    background-image: url(./images/tree.png);
+    background-size: cover;
+}
+
+.inventory.rock {
+    background-image: url(./images/rock.png);
+    background-size: cover;
+}
+
+.inventory.ground {
+    background-image: url(./images/ground.png);
+    background-size: cover;
 }
