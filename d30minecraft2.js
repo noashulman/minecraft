@@ -202,6 +202,8 @@
     function changeClass(event) {
         inventory.setAttribute("class", "inventory");
         if (axeboolean === true) {
+            
+            if (event.target.classList.value.includes("wood") || event.target.classList.value.includes("tree")){
             event.target.classList.remove("wood");
             event.target.classList.remove("tree");
             // for (i = 1; i < inventory.classList.length; i++) {
@@ -209,14 +211,18 @@
             //     inventory.classList.remove("ground")
             // }
             inventory.classList.add("tree")
+            }
         } else if (pickaxeboolean === true) {
+            if (event.target.classList.value.includes("rock")){
             event.target.classList.remove("rock");
             // for (i = 1; i < inventory.classList.length; i++) {
             //     inventory.classList.remove("tree")
             //     inventory.classList.remove("ground")
             // }
             inventory.classList.add("rock")
+            }
         } else if (shovelboolean === true) {
+            if (event.target.classList.value.includes("ground")||event.target.classList.value.includes("grass")){
             event.target.classList.remove("ground");
             event.target.classList.remove("grass");
             // for (i = 1; i < inventory.classList.length; i++) {
@@ -224,14 +230,15 @@
             //     inventory.classList.remove("rock")
             // }
             inventory.classList.add("ground")
+            }
         }
     }
 
 
     function takeFromInventory(event) {
-        // const inInventory = event.target.classList.value.split(" ")[1];
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
+                canvasCubes[i][j].removeEventListener("click", changeClass);
                 canvasCubes[i][j].addEventListener("click", build);
 
 
@@ -242,7 +249,6 @@
     }
     
     function build (event){
-        for (let i=0; i<1; i++){
         event.target.classList.add (`${inventory.classList.value.split(" ")[1]}`);
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
@@ -251,6 +257,6 @@
 
             }
         }
-        }
+        
     }
 }
