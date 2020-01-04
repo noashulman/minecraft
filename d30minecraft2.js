@@ -146,57 +146,22 @@
     const inventory = document.querySelector(".inventory");
     inventory.addEventListener("click", takeFromInventory);
 
-    // function mine() {
-    //     const axe = document.querySelector(".axe");
-    //     axe.addEventListener("click", minewood);
-
-    //     const pickaxe = document.querySelector(".pickaxe");
-    //     pickaxe.addEventListener("click", minerock);
-
-    //     const shovel = document.querySelector(".shovel");
-    //     shovel.addEventListener("click", mineground);
-    // }
-
     function minewood() {
         axeboolean = true;
         pickaxeboolean = false;
         shovelboolean = false;
-
-        // for (let i = 0; i < 20; i++) {
-        //     for (let j = 0; j < 20; j++) {
-        //         canvasCubes[i][j].addEventListener("click", changeClass);
-
-
-        //     }
-        // }
     }
 
     function minerock() {
         axeboolean = false;
         pickaxeboolean = true;
         shovelboolean = false;
-
-        // for (let i = 0; i < 20; i++) {
-        //     for (let j = 0; j < 20; j++) {
-        //         canvasCubes[i][j].addEventListener("click", changeClass);
-
-
-        //     }
-        // }
     }
 
     function mineground() {
         axeboolean = false;
         pickaxeboolean = false;
         shovelboolean = true;
-
-        // for (let i = 0; i < 20; i++) {
-        //     for (let j = 0; j < 20; j++) {
-        //         canvasCubes[i][j].addEventListener("click", changeClass);
-
-
-        //     }
-        // }
     }
 
     function changeClass(event) {
@@ -206,46 +171,30 @@
             if (event.target.classList.value.includes("wood") || event.target.classList.value.includes("tree")){
             event.target.classList.remove("wood");
             event.target.classList.remove("tree");
-            // for (i = 1; i < inventory.classList.length; i++) {
-            //     inventory.classList.remove("rock")
-            //     inventory.classList.remove("ground")
-            // }
             inventory.classList.add("tree")
             }
         } else if (pickaxeboolean === true) {
             if (event.target.classList.value.includes("rock")){
             event.target.classList.remove("rock");
-            // for (i = 1; i < inventory.classList.length; i++) {
-            //     inventory.classList.remove("tree")
-            //     inventory.classList.remove("ground")
-            // }
             inventory.classList.add("rock")
             }
         } else if (shovelboolean === true) {
             if (event.target.classList.value.includes("ground")||event.target.classList.value.includes("grass")){
             event.target.classList.remove("ground");
             event.target.classList.remove("grass");
-            // for (i = 1; i < inventory.classList.length; i++) {
-            //     inventory.classList.remove("tree")
-            //     inventory.classList.remove("rock")
-            // }
             inventory.classList.add("ground")
             }
         }
     }
 
 
-    function takeFromInventory(event) {
+    function takeFromInventory() {
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
                 canvasCubes[i][j].removeEventListener("click", changeClass);
                 canvasCubes[i][j].addEventListener("click", build);
-
-
             }
         }
-        
-
     }
     
     function build (event){
@@ -253,10 +202,11 @@
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < 20; j++) {
                 canvasCubes[i][j].removeEventListener("click", build);
-
-
             }
-        }
-        
+        }  
+    }
+    function myNameFunction() {
+        var x = document.getElementById("myText").value;
+        document.getElementById("demo").innerHTML = x;
     }
 }

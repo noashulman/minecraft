@@ -97,9 +97,12 @@
                             this.canvasCubes[i][j].removeEventListener('mousedown', this.buildCube);
                         }
                     }
+                    this.board.classList.remove('tree');
+                    this.board.classList.remove('rock');
+                    this.board.classList.remove('ground');
                     let classesOfBoard = this.board.className.split(" ");
                     if (classesOfBoard.length > 1) {
-                        this.board.classList.remove(classesOfBoard.pop())
+                        this.board.classList.remove(classesOfBoard.pop());
                     }
                     let classOfClickedTool = e.target.className.split(" ").pop();
                     this.board.classList.add(classOfClickedTool + "s");
@@ -121,13 +124,10 @@
 
 
         mineCube = (event) => {
-            console.log(event.target);
-            console.log(this.inventory);
             this.inventory.setAttribute('class', 'inventory');
             let classOfCube = [...event.target.classList].pop();
             classOfCube === 'wood' ? classOfCube = 'tree' : classOfCube === 'grass' ? classOfCube = 'ground' : null;
             this.invStore.push(classOfCube);
-            console.log(this.invStore);
             event.target.setAttribute('class', 'cube');
             this.inventory.classList.add(classOfCube);
         }
@@ -203,8 +203,7 @@
 
         takeFromInventory = () => {
             this.inventory.setAttribute('class', `inventory ${this.invStore[this.invStore.length-1]}`);
-            console.log(this.invStore);
-
+            this.board.setAttribute('class', `board ${this.invStore[this.invStore.length-1]}`);
             const freeCubes = [];
             const occupiedCubes = [];
             for (let i = 0; i < 20; i++) {
@@ -218,8 +217,6 @@
                     }
                 }
             }
-            console.log(freeCubes);
-
             freeCubes.map(freeCube => {
                 freeCube.addEventListener('mousedown', this.buildCube);
             });
@@ -227,12 +224,11 @@
 
         buildCube = (event) => {
             while ([...this.inventory.classList].length > 1) {
-                console.log(this.invStore);
                 if ([...event.target.classList].length === 1) {
                     const classToCube = this.invStore.pop();
                     event.target.classList.add(classToCube);
                     this.inventory.setAttribute('class', `inventory ${this.invStore[this.invStore.length-1]}`);
-                    console.log(this.invStore);
+                    this.board.setAttribute('class', `board ${this.invStore[this.invStore.length-1]}`);
                     break;
                 }
             }
@@ -244,19 +240,21 @@
 
     const clock = document.querySelector('.clock');
     window.setInterval(() => {
-                const x = new Date();
-                const hour = x.getHours();
-                const minute = x.getMinutes();
-                const second = x.getSeconds();
+                const time = new Date();
+                const hour = time.getHours();
+                const minute = time.getMinutes();
+                const second = time.getSeconds();
                 clock.innerHTML = `${hour<10?`0${hour}`:hour}:${minute<10?`0${minute}`:minute}:${second<10?`0${second}`:second}`;
     }, 1000);
 
     const startGame = document.getElementById('main-start');
     const introDiv = document.querySelector('.intro-page');
     const gameDiv = document.querySelector('.game');
+    const myText = document.getElementById("myText");
     startGame.addEventListener('click', () => {
         introDiv.classList.add('hide');
         gameDiv.classList.remove('hide');
+        document.getElementById("demo").innerHTML = myText.value;
         new Game();
     });
 }
