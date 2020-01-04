@@ -88,9 +88,15 @@
             this.inventory = document.querySelector(".inventory");
             this.board = document.querySelector(".board");
             this.tools = document.querySelectorAll(".toolbox");
+            this.invStore = [];
             this.arrOfTools = [...this.tools];
             for (const tool of this.arrOfTools) {
                 tool.addEventListener("mousedown", e => {
+                    for (let i = 0; i < 20; i++) {
+                        for (let j = 0; j < 20; j++) {
+                            this.canvasCubes[i][j].removeEventListener('mousedown', this.buildCube);
+                        }
+                    }
                     let classesOfBoard = this.board.className.split(" ");
                     if (classesOfBoard.length > 1) {
                         this.board.classList.remove(classesOfBoard.pop())
@@ -99,18 +105,18 @@
                     this.board.classList.add(classOfClickedTool + "s");
                     switch (classOfClickedTool) {
                         case 'axe':
-                            this.minewood();
+                            this.mineWood();
                             break;
                         case 'pickaxe':
-                            this.minerock();
+                            this.mineRock();
                             break;
                         case 'shovel':
-                            this.mineground();
+                            this.mineGround();
                             break;
                     }
                 });
+                this.inventory.addEventListener("mousedown", this.takeFromInventory);
             }
-            this.invStore = [];
         }
 
 
@@ -126,7 +132,7 @@
             this.inventory.classList.add(classOfCube);
         }
 
-        minewood() {
+        mineWood() {
             let cubesNotWood = [];
             let woodCubes = [];
             for (let i = 0; i < 20; i++) {
@@ -149,7 +155,7 @@
             });
         }
 
-        minerock() {
+        mineRock() {
             let cubesNotRock = [];
             let rockCubes = [];
             for (let i = 0; i < 20; i++) {
@@ -172,7 +178,7 @@
             });
         }
 
-        mineground() {
+        mineGround() {
             let cubesNotGround = [];
             let groundCubes = [];
             for (let i = 0; i < 20; i++) {
@@ -195,8 +201,44 @@
             });
         }
 
-        takeFromInventory(event) {
+        takeFromInventory = () => {
+            this.inventory.setAttribute('class', `inventory ${this.invStore[this.invStore.length-1]}`);
+            console.log(this.invStore);
 
+            const freeCubes = [];
+            const occupiedCubes = [];
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
+                    this.canvasCubes[i][j].removeEventListener('mousedown', this.mineCube);
+                    const classesOfCube = [...this.canvasCubes[i][j].classList]
+                    if (classesOfCube.includes('wood') || classesOfCube.includes('tree') || classesOfCube.includes('ground') || classesOfCube.includes('grass') || classesOfCube.includes('rock')) {
+                        occupiedCubes.push(this.canvasCubes[i][j]);
+                    } else {
+                        freeCubes.push(this.canvasCubes[i][j]);
+                    }
+                }
+            }
+            console.log(freeCubes);
+
+            freeCubes.map(freeCube => {
+                freeCube.addEventListener('mousedown', this.buildCube);
+            });
+        }
+
+        buildCube = (event) => {
+            while ([...this.inventory.classList].length > 1) {
+                console.log(this.invStore);
+                if ([...event.target.classList].length === 1) {
+                    const classToCube = this.invStore.pop();
+                    event.target.classList.add(classToCube);
+                    this.inventory.setAttribute('class', `inventory ${this.invStore[this.invStore.length-1]}`);
+                    console.log(this.invStore);
+                    break;
+                }
+            }
+            if (this.invStore.length == 0) {
+                this.inventory.setAttribute('class', 'inventory');
+            }
         }
     }
 
