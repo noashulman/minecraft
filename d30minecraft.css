@@ -57,7 +57,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-color: rgba(245, 240, 240, 0.5);
-    color: rgb(253, 253, 253);
+    color:dimgray;
     font-weight: bold;
     text-shadow: 2px 2px rgba(255, 255, 255, 0.5);
 }
@@ -94,7 +94,6 @@ img {
 .menu {
     width: 25%;
     height: 100vh;
-    border: 1px dashed green;
     justify-content: center;
     align-items: center;
 }
@@ -110,13 +109,13 @@ width: 100%;
 .board {
     height: 100%;
     width: 70%;
-    border: 1px solid red
+    
 }
 
 .canvas {
     width: 98%;
     height: 98%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-color: rgb(46, 176, 252);
 }
 
