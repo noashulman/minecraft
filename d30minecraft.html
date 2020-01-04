@@ -22,7 +22,8 @@
 <body>
     <div class="intro-page">
         <img src="./images/hiclipart.com.png" alt="">
-        <button id="main-start">Start</button>
+        <input type="text" id="myText" value="stranger">
+        <button onclick="myNameFunction()" id="main-start">Start</button>
     </div>
     <div class="game hide">
         <div class="menu left">
@@ -47,6 +48,12 @@
             </div>
         </div>
         <div class="menu right">
+            <div class="main-message">
+                <div class="your message">Hello </div>
+                <div class ="your name"id="demo"></div>
+                <div class ="your message">Enjoy the game!</div>
+                <img src="./images/Desktop/char.gif" alt="">
+            </div>
             <iframe id="ytplayer" type="text/html"
             src="https://www.youtube.com/embed/SwvVgfcsjlk"
             frameborder="0"></iframe>

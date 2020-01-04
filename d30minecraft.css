@@ -101,7 +101,8 @@ img {
 .menu.right{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 #ytplayer{
 width: 100%;
@@ -243,4 +244,21 @@ button:hover {
 .inventory.ground {
     background-image: url(./images/ground.png);
     background-size: cover;
+}
+#myText{
+  font-size: 2vh;  
+  font-family: "Open Sans", Arial, sans-serif;
+}
+.your{
+    font-size: 2rem;
+    font-family: fantasy;
+    color: rgb(151, 68, 21);
+    font-weight: 700;
+}
+
+.main-message{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
 }
